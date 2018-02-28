@@ -1,6 +1,7 @@
 import React from 'react'
 import {render} from 'react-dom'
-import MyFirstComp from './components/MyFirstComp.js'
+import App from './components/App.js'
+import countries from './data/countries.json'
 const app = document.querySelector('#app')
 
-render(<MyFirstComp />, app)
+render(<App data={countries} />, app)
