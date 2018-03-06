@@ -3,12 +3,14 @@ import Text from './Text.js'
 
 export default function App (props) {
   const data = props.data
-  console.log(data)
   return (
     <div>
-      {data.map((name, color) => {
-        return <Text key={name + color} content={name} color={color} />
-      })}
+      {data.map(({name, color}, index) => {
+        return (
+          <Text key={index} text={name} color={color} />
+        )
+      }
+      )}
     </div>
   )
 }
