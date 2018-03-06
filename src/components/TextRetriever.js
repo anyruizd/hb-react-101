@@ -20,10 +20,20 @@ export default class extends Component {
     event.preventDefault()
     this.props.onSubmit(this.state.value)
   }
+
+  componentDidMount () {
+    this.input.focus()
+  }
   render () {
     return (
       <form className='text-retriever' onSubmit={this.onSubmitHandler}>
-        <input type='text' value={this.state.value} onChange={this.onChangeHandler} />
+        <input
+          type='text'
+          value={this.state.value}
+          onChange={this.onChangeHandler}
+          ref={(input) => {
+            this.input = input
+          }} />
         <button type='submit'> Add </button>
       </form>
     )
