@@ -16,10 +16,10 @@ export default class Text extends React.Component {
       selectedFlag: this.state.selected ? 'selected' : 'no-selected'
     }
     /* return ce('p', {style, className: props.className}, props.text) */
-    return <div onClick={this.toggle}
+    return <p onClick={this.toggle}
       className={`${style.className} ${style.selectedFlag}`}
       style={{color: style.color}}
-    > {this.props.text} </div>
+    > {this.props.content} </p>
   }
 
   toggle () {

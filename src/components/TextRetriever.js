@@ -12,13 +12,16 @@ export default class extends Component {
 
   onChangeHandler (event) {
     this.setState({
-      value: event.target.value
+      value: event.currentTarget.value
     })
   }
 
   onSubmitHandler (event) {
     event.preventDefault()
-    this.props.onSubmit(this.state.value)
+    if (this.state.value) {
+      this.props.onSubmit(this.state.value)
+      this.setState({value: ''})
+    }
   }
 
   componentDidMount () {
@@ -30,11 +33,9 @@ export default class extends Component {
         <input
           type='text'
           value={this.state.value}
-          onChange={this.onChangeHandler}
-          ref={(input) => {
-            this.input = input
-          }} />
-        <button type='submit'> Add </button>
+          ref={(input) => { this.input = input }}
+          onChange={this.onChangeHandler} />
+        <button type='submit'>Add</button>
       </form>
     )
   }
